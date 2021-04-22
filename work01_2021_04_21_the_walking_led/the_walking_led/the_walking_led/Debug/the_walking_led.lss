@@ -1,0 +1,263 @@
+
+the_walking_led.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  0000018c  00000220  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000018c  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000002  00800102  00800102  00000222  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000222  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000254  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000020  00000000  00000000  00000294  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000007b1  00000000  00000000  000002b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000006ac  00000000  00000000  00000a65  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000002c5  00000000  00000000  00001111  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000024  00000000  00000000  000013d8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000040b  00000000  00000000  000013fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000000b4  00000000  00000000  00001807  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000010  00000000  00000000  000018bb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	ec e8       	ldi	r30, 0x8C	; 140
+  7c:	f1 e0       	ldi	r31, 0x01	; 1
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a2 30       	cpi	r26, 0x02	; 2
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a2 e0       	ldi	r26, 0x02	; 2
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a4 30       	cpi	r26, 0x04	; 4
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 53 00 	call	0xa6	; 0xa6 <main>
+  9e:	0c 94 c4 00 	jmp	0x188	; 0x188 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <main>:
+#define LED_08	(7)
+
+int led_status = 1, value = 0;
+
+int main(void) {
+	DDRB |= (0xFF);					// set output to all PORTB
+  a6:	84 b1       	in	r24, 0x04	; 4
+  a8:	9f ef       	ldi	r25, 0xFF	; 255
+  aa:	94 b9       	out	0x04, r25	; 4
+	TCCR1B |= (0x0B);				// pre-scaler = 64, clear timer/counter e compare match
+  ac:	e1 e8       	ldi	r30, 0x81	; 129
+  ae:	f0 e0       	ldi	r31, 0x00	; 0
+  b0:	80 81       	ld	r24, Z
+  b2:	8b 60       	ori	r24, 0x0B	; 11
+  b4:	80 83       	st	Z, r24
+	OCR1A = 5;						// define top counter value
+  b6:	25 e0       	ldi	r18, 0x05	; 5
+  b8:	30 e0       	ldi	r19, 0x00	; 0
+  ba:	30 93 89 00 	sts	0x0089, r19	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+  be:	20 93 88 00 	sts	0x0088, r18	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+	TIMSK1 |= (0x02);				// enable OC1 output to 'overflow interrupt'
+  c2:	ef e6       	ldi	r30, 0x6F	; 111
+  c4:	f0 e0       	ldi	r31, 0x00	; 0
+  c6:	80 81       	ld	r24, Z
+  c8:	82 60       	ori	r24, 0x02	; 2
+  ca:	80 83       	st	Z, r24
+	
+	int i = 0;
+	
+	PORTB = (0xFF);					// PORTB LED NL 1
+  cc:	95 b9       	out	0x05, r25	; 5
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ce:	2f e9       	ldi	r18, 0x9F	; 159
+  d0:	36 e8       	ldi	r19, 0x86	; 134
+  d2:	41 e0       	ldi	r20, 0x01	; 1
+  d4:	21 50       	subi	r18, 0x01	; 1
+  d6:	30 40       	sbci	r19, 0x00	; 0
+  d8:	40 40       	sbci	r20, 0x00	; 0
+  da:	e1 f7       	brne	.-8      	; 0xd4 <main+0x2e>
+  dc:	00 c0       	rjmp	.+0      	; 0xde <main+0x38>
+  de:	00 00       	nop
+	_delay_ms(500);					// delay 5 milliseconds
+	PORTB = (0x00);					// PORTB LED NL 0
+  e0:	15 b8       	out	0x05, r1	; 5
+  e2:	8f e9       	ldi	r24, 0x9F	; 159
+  e4:	96 e8       	ldi	r25, 0x86	; 134
+  e6:	21 e0       	ldi	r18, 0x01	; 1
+  e8:	81 50       	subi	r24, 0x01	; 1
+  ea:	90 40       	sbci	r25, 0x00	; 0
+  ec:	20 40       	sbci	r18, 0x00	; 0
+  ee:	e1 f7       	brne	.-8      	; 0xe8 <main+0x42>
+  f0:	00 c0       	rjmp	.+0      	; 0xf2 <main+0x4c>
+  f2:	00 00       	nop
+	DDRB |= (0xFF);					// set output to all PORTB
+	TCCR1B |= (0x0B);				// pre-scaler = 64, clear timer/counter e compare match
+	OCR1A = 5;						// define top counter value
+	TIMSK1 |= (0x02);				// enable OC1 output to 'overflow interrupt'
+	
+	int i = 0;
+  f4:	80 e0       	ldi	r24, 0x00	; 0
+  f6:	90 e0       	ldi	r25, 0x00	; 0
+  f8:	02 c0       	rjmp	.+4      	; 0xfe <main+0x58>
+			PORTB &= ~(1 << value);	// PORTB LED NL 0
+			led_status = 1;			// set LED Status to NL1
+		}
+		
+		if (i == 7) {
+			i = 0;					// if i == 0 restart process
+  fa:	80 e0       	ldi	r24, 0x00	; 0
+  fc:	90 e0       	ldi	r25, 0x00	; 0
+	_delay_ms(500);					// delay 5 milliseconds
+	PORTB = (0x00);					// PORTB LED NL 0
+	_delay_ms(500);					// delay 5 milliseconds
+	
+	while (1) {
+		if (led_status == 1) {
+  fe:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 102:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 106:	21 30       	cpi	r18, 0x01	; 1
+ 108:	31 05       	cpc	r19, r1
+ 10a:	e1 f4       	brne	.+56     	; 0x144 <main+0x9e>
+			value = i;
+ 10c:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <__data_end+0x1>
+ 110:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <__data_end>
+			PORTB |= (1 << value);	// PORTB LED NL 1
+ 114:	45 b1       	in	r20, 0x05	; 5
+ 116:	21 e0       	ldi	r18, 0x01	; 1
+ 118:	30 e0       	ldi	r19, 0x00	; 0
+ 11a:	08 2e       	mov	r0, r24
+ 11c:	02 c0       	rjmp	.+4      	; 0x122 <main+0x7c>
+ 11e:	22 0f       	add	r18, r18
+ 120:	33 1f       	adc	r19, r19
+ 122:	0a 94       	dec	r0
+ 124:	e2 f7       	brpl	.-8      	; 0x11e <main+0x78>
+ 126:	24 2b       	or	r18, r20
+ 128:	25 b9       	out	0x05, r18	; 5
+ 12a:	3f e3       	ldi	r19, 0x3F	; 63
+ 12c:	4d e0       	ldi	r20, 0x0D	; 13
+ 12e:	23 e0       	ldi	r18, 0x03	; 3
+ 130:	31 50       	subi	r19, 0x01	; 1
+ 132:	40 40       	sbci	r20, 0x00	; 0
+ 134:	20 40       	sbci	r18, 0x00	; 0
+ 136:	e1 f7       	brne	.-8      	; 0x130 <main+0x8a>
+ 138:	00 c0       	rjmp	.+0      	; 0x13a <main+0x94>
+ 13a:	00 00       	nop
+			_delay_ms(1000);		// delay 10 milliseconds
+			led_status = 0;			// set LED Status to NL0
+ 13c:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 140:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__DATA_REGION_ORIGIN__>
+		}
+	
+		if (led_status == 0) {
+ 144:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 148:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 14c:	23 2b       	or	r18, r19
+ 14e:	b1 f4       	brne	.+44     	; 0x17c <main+0xd6>
+			value = 8 - (8 - i);
+ 150:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <__data_end+0x1>
+ 154:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <__data_end>
+			PORTB &= ~(1 << value);	// PORTB LED NL 0
+ 158:	35 b1       	in	r19, 0x05	; 5
+ 15a:	61 e0       	ldi	r22, 0x01	; 1
+ 15c:	70 e0       	ldi	r23, 0x00	; 0
+ 15e:	ab 01       	movw	r20, r22
+ 160:	08 2e       	mov	r0, r24
+ 162:	02 c0       	rjmp	.+4      	; 0x168 <main+0xc2>
+ 164:	44 0f       	add	r20, r20
+ 166:	55 1f       	adc	r21, r21
+ 168:	0a 94       	dec	r0
+ 16a:	e2 f7       	brpl	.-8      	; 0x164 <main+0xbe>
+ 16c:	24 2f       	mov	r18, r20
+ 16e:	20 95       	com	r18
+ 170:	23 23       	and	r18, r19
+ 172:	25 b9       	out	0x05, r18	; 5
+			led_status = 1;			// set LED Status to NL1
+ 174:	70 93 01 01 	sts	0x0101, r23	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 178:	60 93 00 01 	sts	0x0100, r22	; 0x800100 <__DATA_REGION_ORIGIN__>
+		}
+		
+		if (i == 7) {
+ 17c:	87 30       	cpi	r24, 0x07	; 7
+ 17e:	91 05       	cpc	r25, r1
+ 180:	09 f4       	brne	.+2      	; 0x184 <main+0xde>
+ 182:	bb cf       	rjmp	.-138    	; 0xfa <main+0x54>
+			i = 0;					// if i == 0 restart process
+		} else {
+			i++;
+ 184:	01 96       	adiw	r24, 0x01	; 1
+ 186:	bb cf       	rjmp	.-138    	; 0xfe <main+0x58>
+
+00000188 <_exit>:
+ 188:	f8 94       	cli
+
+0000018a <__stop_program>:
+ 18a:	ff cf       	rjmp	.-2      	; 0x18a <__stop_program>
