@@ -28,7 +28,8 @@ Made in College.
 This project was developed with the following technologies:
 
 - [C (Programming Language)](https://en.wikipedia.org/wiki/C_(programming_language))
-- [MPLAB X IDE](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide)
+- [ATmega328](https://www.microchip.com/wwwproducts/en/ATmega328)
+- [Microchip Studio for AVR and SAM Devices 7.0.2542](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices)
 
 
 ## References
