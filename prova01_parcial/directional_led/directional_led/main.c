@@ -1,4 +1,4 @@
-/* Engenharia da Computação - UNAERP
+/* Engenharia da ComputaÃ§Ã£o - UNAERP
  * Prova Parcial - Microcontroladores e Microprocessadores II - GL522A
  * 
  * directional_led.c
