@@ -18,7 +18,7 @@
 
 ## About the Project
 
-...
+Logic circuits with ATmega328 and Programming Language C.
 
 Made in College.
 
